@@ -10,8 +10,6 @@ osx_image: xcode8.1
 before_install:
   - gem install simctl --no-rdoc --no-ri --no-document --quiet
   - ruby -rsimctl -e 'SimCtl.warmup("iPhone 6s Plus", "iOS 9.3", 900)'
-  - xcrun instruments -w 'Select a iOS Simulator UUID' || true
-  - sleep 15
 
 script:
 - xcodebuild clean build -workspace Example/Transloadit.xcworkspace -scheme Transloadit-Example -destination 'platform=iOS Simulator,id=132FBB24-912B-416D-9E15-17B44D4D1BA6,OS=9.3'
